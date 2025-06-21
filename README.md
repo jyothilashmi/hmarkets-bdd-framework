@@ -106,8 +106,7 @@ This project is designed to automate form testing on the HMarkets website. It us
 ```
 hmarkets-bdd-framework/
 ├── features/                 # Feature files (.feature)
-├── features/step_definitions/ # Step definitions (.js)
-├── features/support/          # Hooks and utilities
+├── features/step_definitions/ # Step definitions (.js) and  # Hooks 
 ├── pages/                    # Page Objects and Actions
 ├── utils/                    # Utility helpers and config files
 ├── allure-results/           # Allure raw results (generated)
@@ -117,22 +116,4 @@ hmarkets-bdd-framework/
 └── README.md
 ```
 
----
-
-## Contributing
-
-Feel free to open issues or submit pull requests for improvements or fixes.
-
----
-
-## License
-
-This project is licensed under the MIT License.
-
-```
-
----
-
-Would you like me to create the README.md file for you or just provide the content?
-```
 
