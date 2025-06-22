@@ -88,7 +88,7 @@ This project is designed to automate form testing on the HMarkets website. It us
 * Generate cucumber html report after test execution:
 
   ```bash
-  npm run run report
+  npm run report
   ```
 
 ## Project Structure
