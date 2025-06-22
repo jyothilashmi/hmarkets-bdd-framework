@@ -2,7 +2,7 @@
 import { until } from 'selenium-webdriver';
 
 class WaitUtil {
-  async waitForVisible(driver, locator, timeout = 10000) {
+  async waitForVisible(driver, locator, timeout = 1000000) {
     try {
       const el = await driver.wait(until.elementLocated(locator), timeout);
       await driver.wait(until.elementIsVisible(el), timeout);
@@ -11,6 +11,13 @@ class WaitUtil {
       throw new Error(` [waitForVisible] Element not visible: ${locator} - ${error.message}`);
     }
   }
+// utils/waitUtil.js
+ async waitForPageLoad(driver, timeout = 100000) {
+  await driver.wait(async () => {
+    const readyState = await driver.executeScript('return document.readyState');
+    return readyState === 'complete';
+  }, timeout, 'Timeout waiting for page to load completely');
+}
 
   async waitForClickable(driver, locator, timeout = 10000) {
     try {

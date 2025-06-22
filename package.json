@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-  "test": "npx cucumber-js --config cucumber.js",
-  "test:regression": "cucumber-js --tags @smoke --config cucumber.js",
-  "test:smoke": "",
-  "allure:generate": "allure generate allure-results --clean -o allure-report",
-  "allure:open": "allure open allure-report"
+    "test": "npx cucumber-js --format json:reports/cucumber-report.json",
+    "test:regression": "cucumber-js --tags @regression --config cucumber.js",
+     "report": "node generate-html-report.js",
+     "test:report": "npm run test && npm run report"
+    
   },
   "keywords": [],
   "type": "module",
@@ -21,6 +21,7 @@
     "allure-cucumberjs": "^3.3.0",
     "chai": "^5.2.0",
     "chromedriver": "^137.0.4",
+    "cucumber-html-reporter": "^7.2.0",
     "selenium-webdriver": "^4.33.0"
   }
 }

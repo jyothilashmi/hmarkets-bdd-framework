@@ -7,6 +7,17 @@ export const getValidUser = () => ({
   code: "+971",
   subject:"Marketing",
   message:"testing",
+  empstatus:"unemployed",
+  networth:"$ 0 - 20,000",
+  source:"Inheritance",
+  income:"$ 0 - 5,000",
+  experience:"0-1",
+  dod:"11",
+  dom:"February",
+  doy:"2000",
+  city:"was",
+  address:"testing",
+
   
 });
 export const getValidPersonalAccountData = () =>({

@@ -21,12 +21,6 @@ Thumbs.db
 .idea/
 *.swp
 
-# Test reports
-allure-results/
-allure-report/
-test-output/
-*.png
-
 # Coverage reports
 coverage/
 .nyc_output/

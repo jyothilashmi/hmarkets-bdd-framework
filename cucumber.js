@@ -5,7 +5,7 @@ export default {
       'features/step_definitions/*.js',
       'features/support/hooks.js'
     ],
-    format: ['allure-cucumberjs'],
+    format: ['json:reports/cucumber_report.json'],
     paths: ['features/*.feature'],
     tags: "@smoke",
     publishQuiet: true

@@ -1,13 +1,20 @@
-Feature: Live Account Pre-Registration Form Testing
+# Since the registration is in production from email verification in client portal it is not automated.
+Feature: Live Account Registration Form Testing
 
   Background:
     Given user navigate to the live account pre-registration page
-
-  Scenario: Submit pre-registration form with valid details for personal account
+@regression
+  Scenario: Submit registration form with valid details for personal account
     When user selects personal account pre-registration form 
     And user fill the personal account pre-registration form with valid details
     And user submit the form
     Then user should be redirected to the next step or see a success confirmation
+    And user fills in the personal details successfully
+    Then user should be navigated to the Employment & Financial Information page  
+    And user proceeds to the Confirm Account Registration step  
+    Then user should be navigated to the Email Verification page  
+   # And user uploads the KYC documents successfully  
+  # And user completes the Hantec live account registration successfully
 
 Scenario: Submit pre-registration form with valid details for corporate account
     When user selects corporate account pre-registration form 

@@ -30,7 +30,7 @@ async fillPersonalDetails(user, firstname, lastname, email, type) {
     await this.type(this.locators.txtFirstName, firstname);
     await this.type(this.locators.txtLastName, lastname);
     await this.type(this.locators.txtEmail, email);
-this.sleep(1000000)
+    this.sleep(1000000)
     if (type === "corporate") {
       // Check if jurisdiction dropdown exists and visible before interacting
       const jurisdictionExists = await this.driver.findElements(this.locators.selectJurisdiction);
@@ -74,16 +74,85 @@ this.sleep(1000000)
 }
   async fillPersonalAccountForm(user) {
     try {
-      //this.fillPersonalDetails(user);
       await this.selectDropDownByText(this.locators.selectCountry, user.country);
     } catch (error) {
       console.error("Error while filling live account form:", error);
       throw error;
     }
   }
+  async fillPersonalDetailsInCP(user) {
+  try {
+    this.sleep(10000)
+    await waitUtil.waitForPageLoad(this.driver, timeout = 100000) 
+    await waitUtil.waitForVisible(this.driver, this.locators.selectDod);
+    await this.selectDropDownByText(this.locators.selectDod, user.dod);
+    await this.selectDropDownByText(this.locators.selectDom, user.dom);
+    await this.selectDropDownByText(this.locators.selectDoby, user.doy);
+    await this.type(this.locators.txtAdrs, user.address);
+    await this.type(this.locators.txtCity,user.city);
+    await this.click(this.locators.btnSavedetails);
+    
+  } catch (error) {
+    console.error("Error while filling live personal details in CP:", error);
+    throw error;
+  }
+}
+  async fillEmpFinancialInCP(user) {
+  try {
+    this.sleep(10000)
+    await waitUtil.waitForVisible(this.driver, this.locators.selectEmpStatus);
+    await this.selectDropDownByText(this.locators.selectEmpStatus, user.empstatus);
+    await this.selectDropDownByText(this.locators.selectFunds, user.source);
+    await this.selectDropDownByText(this.locators.selectNet, user.networth);
+    await this.selectDropDownByText(this.locators.selectIncome, user.income);
+    await this.selectDropDownByText(this.locators.selectExp, user.experience);
+    await this.click(this.locators.btnNext);
+
+  } catch (error) {
+    console.error("Error while filling live employment& financial details in CP:", error);
+    throw error;
+  }
+}
+async proceedToConfirmAccountRegistration(user) {
+  try {
+    this.sleep(10000)
+    await this.selectDropDownByText(this.locators.selectEmpStatus, user.empstatus);
+    await this.selectDropDownByText(this.locators.selectFunds, user.source);
+    await this.selectDropDownByText(this.locators.selectNet, user.networth);
+    await this.selectDropDownByText(this.locators.selectIncome, user.income);
+    await this.selectDropDownByText(this.locators.selectExp, user.experience);
+    await this.click(this.locators.btnNext);
+
+  } catch (error) {
+    console.error("Error while filling live employment& financial details in CP:", error);
+    throw error;
+  }
+}
+async proceedToConfirmAccountRegistration() {
+  try {
+    this.sleep(10000)
+    await waitUtil.waitForVisible(this.driver, this.locators.chkAcknowledge);
+    await this.click(this.locators.chkAcknowledge);
+    await this.click(this.locators.btnSendOTP);        
+        
+  } catch (error) {
+    console.error("Error while confirming details in CP:", error);
+    throw error;
+  }
+}
+async confirmEmailOTP() {
+  try {
+    this.sleep(10000)
+    await waitUtil.waitForVisible(this.driver, this.locators.txtOTP);
+    await this.click(this.locators.txtOTP);        
+        
+  } catch (error) {
+    console.error("Error while confirming details in CP:", error);
+    throw error;
+  }
+}
 async fillCorporateAccountForm(user) {
     try {
-      //this.fillPersonalDetails(user);
       await this.selectDropDownByText(this.locators.selectJurisdiction, user.country);
       await this.type(this.locators.txtEntityName, user.entityname);
     } catch (error) {
@@ -95,7 +164,7 @@ async fillCorporateAccountForm(user) {
     try {
       const submitBtn = await waitUtil.waitForClickable(this.driver, this.locators.btnLiveSubmit);
       await submitBtn.click();
-      this.sleep(5000)
+      this.sleep(100000)
     } catch (error) {
       console.error("Failed to submit live account form:", error);
       throw error;

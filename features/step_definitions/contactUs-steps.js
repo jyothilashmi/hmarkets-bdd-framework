@@ -1,23 +1,21 @@
 import { Given, When, Then } from '@cucumber/cucumber';
 import { contactUS } from '../../utils/config.js';
-//import ContactUsActionsClass from '../../pages/actions/ContactUsActions.js';
 import ContactUsActions from '../../pages/actions/ContactUsActions.js';
 import CommonActions from '../../pages/actions/CommonActions.js';
 import dataUtil from '../../utils/dataUtil.js';
 import { expect } from 'chai';
 import { contactUSLocators }  from '../../pages/locators/ContactUsLocators.js';
-import { allureLog  } from '../../utils/allureLogger.js';
+
 
 let contactUsActions;
 let commonActions;
 Given('Navigate to the Contact Us page', async function () {
   try {
-    //ContactUsActions = new ContactUsActionsClass();
+
     contactUsActions = new ContactUsActions();
     commonActions= new CommonActions();
     const contactTitle = dataUtil.getTitles();
     await commonActions.navigateToPages(contactUS,contactTitle.contactUs);
-    allureLog(this,'Navigated to MT Demo Account registration page')
   } catch (error) {
     console.error(" Error :: Navigate to the Contact Us page:", error);
     throw error;

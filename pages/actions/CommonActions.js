@@ -122,6 +122,8 @@ async enterFirstName(user,locator) {
     }
   async isRedirectedToClientPortal() {
   try {
+    this.sleep(10000)
+    await waitUtil.waitForUrlContains(this.driver,"portal-mu.hmarkets.com")
     const currentUrl = await this.driver.getCurrentUrl();
     return currentUrl;
     //.startsWith('https://portal-mu.hmarkets.com/en/#docs');
