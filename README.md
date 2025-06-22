@@ -16,8 +16,6 @@ Automated test framework for [HMarkets](https://hmarkets.com) website using Sele
 - [Running Tests](#running-tests)  
 - [Reporting](#reporting)  
 - [Project Structure](#project-structure)  
-- [Contributing](#contributing)  
-- [License](#license)  
 
 ---
 
@@ -32,7 +30,7 @@ This project is designed to automate form testing on the HMarkets website. It us
 - BDD-style test scenarios with CucumberJS  
 - Page Object Model for scalable and maintainable test code  
 - Supports functional, regression, and negative testing  
-- Generates detailed test reports with Allure  
+- Generates detailed test reports with cucumber html   
 - Tests include validations, error handling, and successful submission checks  
 
 ---
@@ -74,32 +72,24 @@ This project is designed to automate form testing on the HMarkets website. It us
 * Run tests tagged with `@smoke`:
 
   ```bash
-  npm run test:regression
+  npx cucumber-js --tags "@smoke" --format json:reports/cucumber-report.json
   ```
 
 * Run specific feature file:
 
   ```bash
-  npx cucumber-js features/contactUs.feature --tags "@smoke"
+  npx cucumber-js features/contactUs.feature --tags "@smoke" --format json:reports/cucumber-report.json
   ```
 
 ---
 
 ## Reporting
 
-* Generate Allure report after test execution:
+* Generate cucumber html report after test execution:
 
   ```bash
-  npm run allure:generate
+  npm run run report
   ```
-
-* Open Allure report in browser:
-
-  ```bash
-  npm run allure:open
-  ```
-
----
 
 ## Project Structure
 
@@ -109,11 +99,10 @@ hmarkets-bdd-framework/
 ├── features/step_definitions/ # Step definitions (.js) and  # Hooks 
 ├── pages/                    # Page Objects and Actions
 ├── utils/                    # Utility helpers and config files
-├── allure-results/           # Allure raw results (generated)
-├── allure-report/            # Allure report (generated)
+├── generate-html-report.js   # Cucumber html report function
+├── reports/                  # Cucumber html report (generated)
 ├── cucumber.js               # Cucumber config
 ├── package.json
 └── README.md
+└── docs/TestPlan             # Testplan generated for the webform testing
 ```
-
-
