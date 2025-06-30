@@ -5,7 +5,7 @@
 
 Automated test framework for [HMarkets](https://hmarkets.com) website using Selenium WebDriver with JavaScript and CucumberJS for BDD.
 
----
+````
 
 ## Table of Contents
 
@@ -17,13 +17,11 @@ Automated test framework for [HMarkets](https://hmarkets.com) website using Sele
 - [Reporting](#reporting)  
 - [Project Structure](#project-structure)  
 
----
 
 ## Overview
 
 This project is designed to automate form testing on the HMarkets website. It uses Selenium WebDriver and CucumberJS to simulate real user actions and validate form functionality such as the Contact Us form, Demo Account registration, and Live Account pre-registration forms.
 
----
 
 ## Features
 
@@ -33,7 +31,6 @@ This project is designed to automate form testing on the HMarkets website. It us
 - Generates detailed test reports with cucumber html   
 - Tests include validations, error handling, and successful submission checks  
 
----
 
 ## Prerequisites
 
@@ -42,7 +39,6 @@ This project is designed to automate form testing on the HMarkets website. It us
 - Chrome browser (latest)  
 - ChromeDriver compatible with your Chrome version  
 
----
 
 ## Installation
 
@@ -51,15 +47,13 @@ This project is designed to automate form testing on the HMarkets website. It us
    ```bash
    git clone https://github.com/jyothilashmi/hmarkets-bdd-framework.git
    cd hmarkets-bdd-framework
-````
+```
 
 2. Install dependencies
 
    ```bash
    npm install
    ```
-
----
 
 ## Running Tests
 
