@@ -1,11 +1,7 @@
 
-
-````markdown
 # HMarkets BDD Framework
 
 Automated test framework for [HMarkets](https://hmarkets.com) website using Selenium WebDriver with JavaScript and CucumberJS for BDD.
-
-````
 
 ## Table of Contents
 
